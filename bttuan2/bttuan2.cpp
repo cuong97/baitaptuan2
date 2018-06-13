@@ -15,32 +15,36 @@ string a;
 ********************************************/
 
 void kiemtradayngoac() {
-	
-	int mongoac=0;
-	vector<int> b, c;
-	fi >> a;
+
+	int mongoac = 0;
+	vector<int> stackmongoac, stackdongngoac;
+	getline(fi, a);
 	int n = a.size();
 	for (int i = 0; i < a.size(); ++i) {
+		if (a[i] != '(' && a[i] != ')') {
+			fo << "ban nhap sai chuoi";
+			return;
+		}
 		if (a[i] == '(') {
-			b.push_back(i);
+			stackmongoac.push_back(i);
 		}
 		else {
-			if (b.size() == 0) {
-				c.push_back(i);
+			if (stackmongoac.size() == 0) {
+				stackdongngoac.push_back(i);
 			}
 			else {
-				b.pop_back();
+				stackmongoac.pop_back();
 			}
 		}
 	}
-	
-	if (b.size() + c.size() == 0) {
+
+	if (stackmongoac.size() + stackdongngoac.size() == 0) {
 		fo << "0";
 	}
 	else {
-		fo << b.size() + c.size() << endl;
-		for (int i = 0; i < c.size(); ++i) fo << '(' << " " << mongoac++ << endl;
-		for (int i = 0; i < b.size(); ++i) fo << ')' << " " << n++ << endl;
+		fo << stackmongoac.size() + stackdongngoac.size() << endl;
+		for (int i = 0; i < stackdongngoac.size(); ++i) fo << '(' << " " << mongoac++ << endl;
+		for (int i = 0; i < stackmongoac.size(); ++i) fo << ')' << " " << n++ << endl;
 	}
 }
 void fileb1()
