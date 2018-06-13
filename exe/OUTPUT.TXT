@@ -1,0 +1,8 @@
+Enter word to search: we
+	line: 1 col: 4
+	line: 3 col: 22
+	line: 3 col: 84
+	line: 3 col: 91
+	line: 5 col: 10
+	line: 9 col: 21
+	line: 10 col: 49
